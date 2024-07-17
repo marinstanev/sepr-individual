@@ -1,0 +1,146 @@
+<h1 class="display-1">Horse Details</h1>
+
+<div class="row">
+  <!-- Start name and date of birth row -->
+  <div class="mb-2 col-lg-6">
+    <!-- When nesting rows, always make row > col-* > row. The Bootstrap classes do not work right when an element is both col* and row -->
+    <div class="row">
+      <label for="horseName" class="col-form-label text-md-end text-muted col-md-2 col-lg-4">
+        Name
+      </label>
+      <div class="col-md-10 col-lg-8"
+      >
+        <input type="text"
+               id="horseName"
+               name="horseName"
+               class="form-control"
+               [(ngModel)]="horse.name"
+               readonly>
+      </div>
+    </div>
+  </div>
+  <div class="mb-2 col-lg-6">
+    <div class="row">
+      <label for="horseDateOfBirth" class="col-form-label text-md-end text-muted col-md-2 col-lg-4">
+        Date of Birth
+      </label>
+      <div class="col-md-10 col-lg-8"
+      >
+        <input type="date"
+               id="horseDateOfBirth"
+               name="horseDateOfBirth"
+               class="form-control"
+               [(ngModel)]="horse.dateOfBirth"
+               readonly>
+      </div>
+    </div>
+  </div>
+  <!-- End name and date of birth row -->
+</div>
+
+<div class="row">
+  <!-- Start sex row -->
+  <div class="mb-2 col-lg-6">
+    <div class="row">
+      <label for="horseSex" class="col-form-label text-md-end text-muted col-md-2 col-lg-4">
+        Sex
+      </label>
+      <div class="col-md-10 col-lg-8"
+      >
+        <input type="text"
+               id="horseSex"
+               name="horseSex"
+               class="form-control"
+               [(ngModel)]="horse.sex"
+               readonly>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-2 col-lg-6">
+    <div class="row">
+      <label for="horseBreed" class="col-form-label text-md-end text-muted col-md-2 col-lg-4">
+        Breed
+      </label>
+      <div class="col-md-10 col-lg-8"
+      >
+        <input type="text"
+               id="horseBreed"
+               name="horseBreed"
+               class="form-control"
+               [(ngModel)]="horse.breed"
+               [formatModel]="formatBreedName"
+               readonly>
+      </div>
+      <!-- \TEMPLATE EXLCUDE BEGIN\ -->
+      <ng-template #breedDetail>
+        <span class="col-form-label col-md-10 col-lg-8">{{horse.breed?.name}}</span>
+      </ng-template>
+      <!-- \TEMPLATE EXLCUDE END\ -->
+    </div>
+  </div>
+  <!-- End sex row -->
+</div>
+
+<div class="row">
+  <!-- Start height and weight row -->
+  <div class="mb-2 col-lg-6">
+    <div class="row"><label for="horseHeight" class="col-form-label text-md-end text-muted col-md-2 col-lg-4">
+      Height [m]
+    </label>
+      <div class="col-md-10 col-lg-8"
+      >
+        <input type="text"
+               id="horseHeight"
+               name="horseHeight"
+               class="form-control"
+               [(ngModel)]="horse.height"
+               readonly>
+      </div>
+      <!-- \TEMPLATE EXLCUDE BEGIN\ -->
+      <ng-template #heightDetail>
+        <span class="col-form-label col-md-10 col-lg-8">{{horse.height}}</span>
+      </ng-template>
+      <!-- \TEMPLATE EXLCUDE END\ -->
+    </div>
+  </div>
+  <div class="mb-2 col-lg-6">
+    <div class="row"><label for="horseWeight" class="col-form-label text-md-end text-muted col-md-2 col-lg-4">
+      Weight [kg]
+    </label>
+      <div class="col-md-10 col-lg-8"
+      >
+        <input type="text"
+               id="horseWeight"
+               name="horseWeight"
+               class="form-control"
+               [(ngModel)]="horse.weight"
+               readonly>
+      </div>
+      <!-- \TEMPLATE EXLCUDE BEGIN\ -->
+      <ng-template #weightDetail>
+        <span class="col-form-label col-md-10 col-lg-8">{{horse.weight}}</span>
+      </ng-template>
+      <!-- \TEMPLATE EXLCUDE END\ -->
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 d-flex flex-row">
+  <button type="button"
+          class="btn btn-danger"
+          (click)="delete(horse.id)"
+  >
+    <i class="bi bi-trash"></i>
+    Delete
+  </button>
+  <span class="flex-grow-1"></span>
+  <button type="button"
+          class="btn btn-warning"
+          (click)="edit(horse.id)"
+  >
+    <i class="bi bi-pencil"></i>
+    Edit
+  </button>
+</div>
+
